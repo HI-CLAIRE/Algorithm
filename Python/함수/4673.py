@@ -1,11 +1,10 @@
-num_lst = set(range(1, 10001))
-new_numlst = set()
+arr = set(range(1, 10000))
+new_arr = set()
+for i in arr:
+    for n in str(i):
+        i += int(n)
+    new_arr.add(i)
 
-for i in range(1, 10001):
-    for j in str(i):
-        i = i + int(j)
-    new_numlst.add(i)
-
-self_num = sorted(num_lst - new_numlst)
-for i in self_num:
-    print(i)
+self_number = arr - new_arr
+for j in sorted(self_number):
+    print(j)
