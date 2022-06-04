@@ -1,9 +1,7 @@
-alpha = list(enumerate(input()))
-init_lst = [-1 for num in range(26)]
+alpha = input()
 
-for i in alpha:
-    if 'a' <= alpha and alpha <= 'z':
-        print(alpha.index(i), end = ' ')
-
-for index, value in enumerate(alpha):
-    print(index)
+for i in range(97, 123):
+    if chr(i) in alpha:
+        print(alpha.index(chr(i)), end = ' ')
+    else:
+        print(-1, end = ' ')
