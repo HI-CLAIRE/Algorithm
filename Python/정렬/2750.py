@@ -4,7 +4,6 @@ lst = []
 for i in range(N):
     num = int(input())
     lst.append(num)
-lst.sort()
 
-for i in lst:
+for i in sorted(lst):
     print(i)
