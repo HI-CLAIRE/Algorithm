@@ -1,3 +1,4 @@
+# 쉬운 버전
 n, m, k = map(int, input().split())
 data = list(map(int, input().split()))
 
