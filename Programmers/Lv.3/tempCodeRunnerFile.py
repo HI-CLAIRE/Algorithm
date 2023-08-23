@@ -1,1 +1,0 @@
-combinations(first_list, n)
