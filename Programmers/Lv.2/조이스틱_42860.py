@@ -1,37 +1,48 @@
 name = input()
 
-# 23.09.07
-# 조이스틱을 움직여서 모든 요소를 "A"로 만들기
-
 def solution(name):
   ans = 0
-  name = list(name)
-  idx = 0
+  n_len = len(name)
+  min_move = n_len - 1
+  for i in range(n_len):
+    # A와 Z중 가까운 거리 구하기, Z는 한 번 움직이는 거니까 +1
+    ans += min(ord(name[i]) - ord("A"), ord("Z") - ord(name[i]) + 1)
 
-  while True:
-    # 현재 위치에서 A과 Z 중 가까운 값
-    ans += min(ord(name[idx])-ord("A"), ord("Z")-ord(name[idx])+1)
-
-    # 모든 문자열이 "A"가 되면 종료
-    name[idx] = "A"
-    if name.count("A") == len(name):
-      break
-
-    # 다음으로 이동할 위치
-    left, right = 1, 1
-    while name[idx - left] == "A":
-      left += 1
-    while name[idx + right] == "A":
-      right += 1
+    # 연속된 A는 건너뛰어도 됨. 연속된 A의 갯수 구하기
+    next = i + 1
+    while next < n_len and name[next] == "A":
+      next += 1
     
-    # 왼쪽과 오른쪽 중 더 가까운 쪽으로 이동
-    if left < right:
-      ans += left
-      idx -= left
-    else:
-      ans += right
-      idx += right
-  
-  return ans
+    a_left = 2*i + (n_len - next) # 연속된 A의 왼쪽
+    a_right = i + 2*(n_len - next)  # 연속된 A의 오른쪽
+
+    # 기존 0부터 시작 vs 왼쪽 vs 오른쪽
+    min_move = min(min_move, a_left, a_right)
+    print(f"{name[i]} : {min_move}, {a_left}, {a_right}")
+
+  return ans + min_move
 
 print(solution(name))
+
+
+# def solution(name):
+#     answer = 0
+#     n = len(name)
+
+#     def alphabet_to_num(char):
+#         num_char = [i for i in range(14)] + [j for j in range(12, 0, -1)]
+#         return num_char[ord(char) - ord('A')]
+
+#     for ch in name:
+#         answer += alphabet_to_num(ch)
+
+#     move = n - 1
+#     for idx in range(n):
+#         next_idx = idx + 1
+#         while (next_idx < n) and (name[next_idx] == 'A'):
+#             next_idx += 1
+#         distance = min(idx, n - next_idx)
+#         move = min(move, idx + n - next_idx + distance)
+
+#     answer += move
+#     return answer
