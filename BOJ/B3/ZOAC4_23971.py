@@ -1,19 +1,8 @@
 h, w, n, m = map(int, input().split())
 
-maps = [[0]*w for _ in range(h) ]
+x = w // (1+m)	# 가로
+y = h // (1+n)	# 세로
+if w % (1+m) > 0: x += 1
+if h % (1+n) > 0: y += 1
 
-dr = [0, 1, 1]
-dc = [1, 1, 0]
-
-for i in range(w):
-	for j in range(h):
-		for k in range(3):
-			nr = i + dr[k]
-			nc = j + dc[k]
-			if nr>=0 and nr<w and nc>=0 and nc<h:
-				maps[nr][nc] = 1
-
-for i in maps:
-	for j in i:
-		print(j, end=" ")
-	print()
+print(x*y)
