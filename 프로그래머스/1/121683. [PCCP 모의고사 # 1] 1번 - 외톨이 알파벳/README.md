@@ -1,4 +1,4 @@
-# [level 1] [PCCP 모의고사 #1] 1번 - 외톨이 알파벳 - 15008
+# [level 1] [PCCP 모의고사 #1] 1번 - 외톨이 알파벳 - 121683
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/15008/lessons/121683#)
 
