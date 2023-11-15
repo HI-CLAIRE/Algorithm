@@ -14,6 +14,7 @@ def recur(a, b, l, arr, ans):
                 recur(a+l,b+l,l,arr,ans)
                 return
     ans[start] += 1
+    return
 
 def solution(arr):
     ans = [0, 0]
