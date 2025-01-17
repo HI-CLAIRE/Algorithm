@@ -1,15 +1,6 @@
 function solution(arr, divisor) {
-    var answer = [];
-    for(el of arr) {
-        if (el % divisor === 0 ) {
-            answer.push(el)
-        }
-    }
-    if(answer.length === 0) {
-        answer.push(-1)
-    } else {
-        answer.sort((a,b) => a-b)
-    }
+    // divisor로 나누어 떨어지는 value값만 answer 배열로 필터링
+    var answer = arr.filter((v) => v%divisor === 0)
     
-    return answer
-}
+    return answer.length === 0 ? [-1] : answer.sort((a, b) => a - b)
+}        
